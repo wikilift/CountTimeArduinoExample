@@ -8,7 +8,7 @@ void setup()
 {
   Serial.begin(115200);
   pinMode(inputToCount, INPUT_PULLUP);
-  Serial.println("Hello");
+ 
   flag = true;
  
 }
@@ -20,19 +20,19 @@ void loop()
   {
     if (flag)
     {
-      Serial.println("Empiezo a contar");
+      Serial.println("Counter started");
       myZero = giveMeTheDifference();
       flag = false;
     }
   }
   else if (digitalRead(inputToCount))
-  { // entro aqui
+  { 
     
     if (!flag)
     {
       unsigned long result = giveMeTheTimeElapses(myZero);
-      Serial.println("Termino de contar ahora debo lanzar mi función");
-      Serial.println("Han transcurrido-> " + String(result)+ "miliSegundos");
+      Serial.println("Counter finished,must launch my function");
+      Serial.println("Elapsed-> " + String(result)+ "miliseconds");
     }
 
     flag = true;
